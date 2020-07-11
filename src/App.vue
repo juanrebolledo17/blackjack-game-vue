@@ -1,28 +1,80 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="game">
+    <TheStars />
+    <TheSidebar />
+    <TheGameArea />
+    <TheMenuButton />
+    <TheTitleScreen v-if="$store.state.isTitleShowing" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import TheTitleScreen from './components/TheTitleScreen'
+import TheSidebar from './components/TheSidebar'
+import TheStars from './components/TheGameArea/TheStars'
+import TheGameArea from './components/TheGameArea'
+import TheMenuButton from './components/TheMenuButton'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    TheStars,
+    TheMenuButton,
+    TheGameArea,
+    TheSidebar,
+    TheTitleScreen
   }
-}
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+#game {
+  display: flex;
+  flex-flow:row nowrap;
+}
+
+html, body, #game {
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+@media (max-height: 768px) {
+  html {
+    font-size: calc(5px + 0.5vh);
+  }
+}
+
+body {
+  background: rgb(63, 111, 194);
+  font-family: 'Helvetica', 'Arial', sans-serif;
+}
+
+:focus {
+  outline: 0 !important;
+}
+
+* {
+  user-select: none;
+}
+
+.text-red {
+  color: #E04030;
+}
+
+.text-secondary-color {
+  color: rgb(12, 36, 48);
+}
+
+.text-gold {
+  color: #E1AE0F;
+}
+
+.text-white {
+  color: rgb(239, 240, 252);
 }
 </style>
