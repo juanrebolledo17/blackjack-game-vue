@@ -1,4 +1,4 @@
-# blackjack-clone
+# blackjack-game-vue
 
 ## Project setup
 ```
